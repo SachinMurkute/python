@@ -47,6 +47,38 @@ def minimum_moves(list1, list2):
     return moves
 
 
+"""
+# This function will execute for the integers with un equal number of digits as well.
+def minimum_moves(list1, list2):
+    """
+    Returns Minimun moves required
+    :param list1: list
+    :param list2: list
+    :return: int
+    """
+    moves = 0
+    length = len(list1) if len(list1) > len(list2) else len(list2)
+    for i in range(0, length):  # type: int
+        num1 = list1.pop(0) if len(list1) != 0 else 0
+        num2 = list2.pop(0) if len(list2) != 0 else 0
+        while True:
+            digit1 = 0
+            digit2 = 0
+            if num1 == 0 and num2 == 0:
+                break
+            if num1 != 0:
+                digit1 = num1 % 10
+                num1 = num1 / 10
+
+            if num2 !=0:
+                digit2 = num2 % 10
+                num2 = num2 / 10
+            moves += digit1 - digit2 if digit1 > digit2 else digit2 - digit1
+    return moves
+
+"""
+
+
 if __name__ == "__main__":
     A = [123, 436, 657]
     B = [999, 634, 657]
